@@ -28,6 +28,7 @@
     "@types/express": "^4.17.0",
     "@types/mocha": "^5.2.7",
     "@types/mysql": "^2.15.6",
+    "@types/passport-jwt": "^3.0.1",
     "antlr4": "^4.7.2",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
@@ -36,8 +37,16 @@
     "express": "^4.17.1",
     "kubernetes-client": "^8.3.0",
     "mocha": "^6.1.4",
+    "module-alias": "^2.2.0",
     "mysql": "^2.17.1",
+    "passport-jwt": "^4.0.0",
     "promise-mysql": "^4.0.4",
+    "puppeteer": "^1.18.1",
     "selenium-webdriver": "^4.0.0-alpha.4"
+  },
+  "_moduleAliases": {
+    "@modules": "dist/rest/modules",
+    "@services": "dist/services",
+    "@routes": "dist/routes"
   }
 }

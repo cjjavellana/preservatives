@@ -1,9 +1,9 @@
 import express from "express";
-import { HealthCheckController } from "../controllers/healthcheck";
+import { HealthCheckController } from "../controllers/healthCheckController";
 
-export function register(): express.Router {
-    const routes = express.Router();
+export function register() {
+    const route = express.Router();
     const healthCheckController = new HealthCheckController();
-    routes.get("/", healthCheckController.get);
-    return routes;
+    route.get("/", healthCheckController.get);
+    return route;
 }

@@ -1,6 +1,9 @@
+import "module-alias/register";
+
+// tslint:disable-next-line: ordered-imports
+import * as healthCheckRoute from "@routes/healthcheck";
 import dotenv from "dotenv";
-import express, { Router } from "express";
-import * as healthCheck from "./routes/healthcheck";
+import express from "express";
 
 if (process.env.CONFIG_LOCATION) {
     dotenv.config({
@@ -9,6 +12,6 @@ if (process.env.CONFIG_LOCATION) {
 }
 
 const app = express();
-app.use("/", healthCheck.register());
+app.use("/", healthCheckRoute.register());
 
 export default app;

@@ -10,5 +10,6 @@ create table users (
     created_date timestamp not null default now(),
     updated_by varchar(16) null,
     updated_date timestamp null,
+    UNIQUE KEY(username),
     PRIMARY KEY(id)
 );
