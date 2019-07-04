@@ -47,6 +47,7 @@
   "_moduleAliases": {
     "@modules": "dist/rest/modules",
     "@services": "dist/services",
-    "@routes": "dist/routes"
+    "@routes": "dist/routes",
+    "@controllers": "dist/controllers"
   }
 }
