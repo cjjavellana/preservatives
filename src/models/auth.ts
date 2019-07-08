@@ -22,5 +22,5 @@ export interface Authenticator {
      * @param username
      * @param password
      */
-    authenticate(username: string, password: string): UserDetails;
+    authenticate(username: string, password: string): Promise<UserDetails>;
 }

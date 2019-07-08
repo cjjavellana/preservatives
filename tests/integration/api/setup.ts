@@ -1,29 +1,33 @@
 import fs from "fs";
+import { PoolConnection } from "promise-mysql";
 import db from "../../../src/db";
 
+let connection: PoolConnection;
+
 before(async () => {
+    const pool = await db;
+    connection = await pool.getConnection();
     await createDatabaseIfRequired();
     await useDatabase();
     await createSchema();
 });
 
-after(async () => {
-    const conn = await db;
-    await conn.end();
+after((done) => {
+    db.then((pool) => {
+        pool.releaseConnection(connection);
+        done();
+    });
 });
 
 async function createDatabaseIfRequired() {
-    const conn = await db;
-    await conn.query("CREATE DATABASE IF NOT EXISTS ServiceMonitor");
+    connection.query("CREATE DATABASE IF NOT EXISTS ServiceMonitor");
 }
 
 async function useDatabase() {
-    const conn = await db;
-    await conn.query("Use ServiceMonitor");
+    connection.query("Use ServiceMonitor");
 }
 
 async function createSchema() {
-    const conn = await db;
     const schema = fs.readFileSync("./db/schema.sql");
-    await conn.query(schema.toString());
+    connection.query(schema.toString());
 }

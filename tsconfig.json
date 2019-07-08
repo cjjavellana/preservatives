@@ -9,9 +9,11 @@
         "outDir": "dist",
         "baseUrl": "./src",
         "paths": {
+            "*": ["node_modules/*"],
             "@services/*": ["services/*"],
             "@routes/*": ["routes/*"],
-            "@controllers/*": ["controllers/*"],
+            "@models/*": ["models/*"],
+            "@controllers/*": ["controllers/*"]
         }
     },
     "include": [
